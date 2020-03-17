@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery 연습</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+
+    <style type="text/css">
+      #navigation {
+        cursor: pointer;
+      }
+      #navigation li {
+        list-style: none;
+        float: left;
+        padding: 5px;
+        margin: 5px;
+      }
+      #navigation .selected {
+        background-color: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="navigation">
+      <li class="selected">HTML</li>
+      <li class="">CSS</li>
+      <li class="">jQuery</li>
+      <li class="">javascript</li>
+    </ul>
+    <script type="text/javascript">
+      //다른 라이브러리와 $를 충돌시키지 않기 위해서 지역변수로 만들고 함수 작성 후, 괄호로 묶고 바로 호출한다.
+      (function($) {
+        $("#navigation li").on("click", function() {
+          $("#navigation li").removeClass("selected");
+          $(this).addClass("selected");
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>

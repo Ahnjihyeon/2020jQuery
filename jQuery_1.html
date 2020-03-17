@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery 연습</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+
+    <style type="text/css">
+      #navigation {
+        cursor: pointer;
+      }
+      #navigation li {
+        list-style: none;
+        float: left;
+        padding: 5px;
+        margin: 5px;
+      }
+      #navigation .selected {
+        background-color: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="navigation">
+      <li class="selected">HTML</li>
+      <li class="">CSS</li>
+      <li class="">jQuery</li>
+      <li class="">javascript</li>
+    </ul>
+    <script type="text/javascript">
+      // jQuery를 쓰면 javascript 보다 짧은 문장으로 기능 구현 가능하다.
+      $("#navigation li").on("click", function() {
+        $("#navigation li").removeClass("selected");
+        $(this).addClass("selected");
+      });
+    </script>
+  </body>
+</html>
