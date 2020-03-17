@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery 연습</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+
+    <style type="text/css">
+      #navigation {
+        cursor: pointer;
+      }
+      #navigation li {
+        list-style: none;
+        float: left;
+        padding: 5px;
+        margin: 5px;
+      }
+      #navigation .selected {
+        background-color: orange;
+        color: white;
+      }
+    </style>
+    <script type="text/javascript">
+      (function($) {
+        //event 연습
+        // 브라우저에서 일어나는 사건(이벤트) : .click() .ready() .load() 등
+        // 이벤트 설치/제거/호출 .on() .off() .trigger()
+        $(document).ready(function() {
+          $("#2").on("click", function() {
+            console.log("이벤트 1");
+          });
+        });
+      })(jQuery);
+    </script>
+  </head>
+  <body>
+    <ul id="navigation">
+      <li class="">HTML</li>
+      <li class="">CSS</li>
+      <li class="">jQuery</li>
+      <li class="" id="0">javascript</li>
+      <li class="" target="abcd" id="1">Java</li>
+      <li class="" target="cdef" id="2">Oracle</li>
+    </ul>
+  </body>
+</html>

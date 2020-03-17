@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery 연습</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+
+    <style type="text/css">
+      #navigation {
+        cursor: pointer;
+      }
+      #navigation li {
+        list-style: none;
+        padding: 5px;
+        margin: 5px;
+      }
+      #navigation .selected {
+        background-color: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="navigation">
+      <li class="">HTML</li>
+      <li class="">CSS</li>
+      <li class="">jQuery</li>
+      <li class="" id="1">javascript</li>
+      <li class="" target="abcd" id="1">Java</li>
+      <li class="" target="cdef" id="2">Oracle</li>
+    </ul>
+    <span>가나다라</span>
+    <span>가나다라</span>
+    <span>가나다라</span>
+    <input type="text" value="initial text" />
+
+    <script type="text/javascript">
+      (function($) {
+        $("#navigation li").on("click", function() {
+          $("#navigation li").removeClass("selected"); //클래스 제어
+          $(this).addClass("selected");
+        });
+        //엘리먼트 제어
+        $("#navigation").append("<li>append로 추가</li>"); //자식
+        $("#2").after("<li>after로 추가</li>"); //형제
+        $("#navigation").wrap("<div><p><</p></div>"); //부모로 감싸기
+        $("#navigation li:last").remove(); //삭제
+        $("<b>가나다라</b>").replaceAll("span"); //치환하기
+
+        $("input").keyup(function() {
+          var value = $("input").val(); //속성제어
+          $("b").text(value);
+        });
+      })(jQuery);
+    </script>
+  </body>
+</html>

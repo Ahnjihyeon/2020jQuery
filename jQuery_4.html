@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery 연습</title>
+    <script src="./jquery-3.4.1.min.js"></script>
+
+    <style type="text/css">
+      #navigation {
+        cursor: pointer;
+      }
+      #navigation li {
+        list-style: none;
+        float: left;
+        padding: 5px;
+        margin: 5px;
+      }
+      #navigation .selected {
+        background-color: orange;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="navigation">
+      <li class="">HTML</li>
+      <li class="">CSS</li>
+      <li class="">jQuery</li>
+      <li class="" id="1">javascript</li>
+      <li class="" target="abcd" id="1">Java</li>
+      <li class="" target="cdef" id="2">Oracle</li>
+    </ul>
+    <script type="text/javascript">
+      (function($) {
+        //chain 연습, jQuery는 자기 자신을 반환해야하는 규칙을 가진다. 이를 이용하면 한 번 선택된 대상에 대해서 연속적인 제어를 할 수 있다.
+        $("#navigation")
+          .css("color", "blue")
+          .attr("class", "chain")
+          .on("click", function() {
+            alert("chain test!");
+          });
+      })(jQuery);
+    </script>
+  </body>
+</html>
