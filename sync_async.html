@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type="text/css">
+      table {
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 3px;
+        text-align: left;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        window.sync = function () {
+          var orderRow = document.getElementById("syncOrder");
+          var getRow = document.getElementById("syncGet");
+
+          //주문1
+
+          orderRow.insertCell(1).innerHTML =
+            "자바칩 프라푸치노 투샷추가 초코 드리즐 많이";
+          console.log("동기- 음료1 제작 완료");
+          getRow.insertCell(1).innerHTML = "자바칩 프라푸치노 나왔습니다";
+
+          //주문2
+          orderRow.insertCell(1).innerHTML = "아.아.";
+          console.log("동기- 음료2 제작 완료");
+          getRow.insertCell(1).innerHTML = "아.아. 나왔습니다.";
+
+          //주문3
+          orderRow.insertCell(1).innerHTML = "아.라.";
+          console.log("동기- 음료3 제작 완료");
+          getRow.insertCell(1).innerHTML = "아.라. 나왔습니다.";
+        };
+
+        window.async = function () {
+          var orderRow = document.getElementById("asyncOrder");
+          var getRow = document.getElementById("asyncGet");
+
+          //주문1
+          orderRow.insertCell(1).innerHTML =
+            "자바칩 프라푸치노 투샷추가 초코 드리즐 많이";
+          setTimeout(() => {
+            console.log("비동기 - 음료1 제작 완료");
+            getRow.insertCell(1).innerHTML = "자바칩 프라푸치노 나왔습니다";
+          }, 2000);
+
+          //주문2
+          orderRow.insertCell(1).innerHTML = "따.아.";
+          setTimeout(() => {
+            console.log("비동기 음료2 제작 완료");
+            getRow.insertCell(1).innerHTML = "따.아. 나왔습니다.";
+          }, 500);
+
+          //주문3
+          orderRow.insertCell(1).innerHTML = "아.라.";
+          setTimeout(() => {
+            console.log("비동기 - 음료3 제작 완료");
+            getRow.insertCell(1).innerHTML = "아.라. 나왔습니다.";
+          }, 1000);
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <h1>
+      동기/비동기 예시 - 카페
+    </h1>
+    <button type="button" onclick="sync()">동기 방식</button>
+    <table>
+      <tr id="syncOrder">
+        <th>동기 - 주문 순서</th>
+      </tr>
+      <tr id="syncGet">
+        <th>동기 - 수령 순서</th>
+      </tr>
+    </table>
+
+    <hr />
+    <button type="button" onclick="async()">비동기 방식</button>
+    <table>
+      <tr id="asyncOrder">
+        <th>비동기 - 주문 순서</th>
+      </tr>
+      <tr id="asyncGet">
+        <th>비동기 - 수령 순서(역순)</th>
+      </tr>
+    </table>
+  </body>
+</html>
